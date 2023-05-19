@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Math Game</string>
+    <string name="app_logo">App Logo</string>
+    <string name="addition">Addition</string>
+    <string name="subtract">Subtraction</string>
+    <string name="calculation">Calculation</string>
+    <string name="highest_score">Highest Score</string>
+    <string name="_2048">2048</string>
+    <string name="go_back">Go back</string>
+    <string name="are_you_readyyyy">Are you readyyyy ?</string>
+    <string name="start">Start</string>
+    <string name="_0">0</string>
+    <string name="current_highest_score">Current highest score:</string>
+    <string name="your_score">Your score</string>
+    <string name="life">Life</string>
+    <string name="remaining_time">Remaining time</string>
+    <string name="sample_calculation_problem">18 + 3</string>
+    <string name="submit">Submit</string>
+    <string name="backspace_button">Backspace button</string>
+    <string name="equal_sign">=</string>
+    <string name="question_mark">\?</string>
+    <string name="minus_sign">-</string>
 </resources>

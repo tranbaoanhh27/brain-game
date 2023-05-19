@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Math Game</string>
+    <string name="app_logo">Logo</string>
+    <string name="addition">Phép cộng</string>
+    <string name="subtract">Phép trừ</string>
+    <string name="calculation">Tính toán</string>
+    <string name="highest_score">Số điểm cao nhất</string>
+    <string name="_2048">2048</string>
+    <string name="go_back">Quay lại</string>
+    <string name="are_you_readyyyy">Sẵn sàng chưaaaa?</string>
+    <string name="start">Bắt đầu</string>
+    <string name="_0">0</string>
+    <string name="current_highest_score">Kỉ lục hiện tại:</string>
+    <string name="your_score">Điểm của bạn</string>
+    <string name="life">Mạng</string>
+    <string name="remaining_time">Còn lại</string>
+    <string name="sample_calculation_problem">18 + 3</string>
+    <string name="submit">Nộp đáp án</string>
+    <string name="backspace_button">Nút xoá</string>
+    <string name="equal_sign">=</string>
+    <string name="question_mark">\?</string>
+    <string name="minus_sign">-</string>
+</resources>
