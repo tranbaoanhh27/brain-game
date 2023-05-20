@@ -20,4 +20,14 @@
     <string name="equal_sign">=</string>
     <string name="question_mark">\?</string>
     <string name="minus_sign">-</string>
+    <string name="celebrating_boy">Celebrating Boy</string>
+    <string name="your_score_uppercase">YOUR SCORE</string>
+    <string name="congratulation_this_is_a_new_record">Congratulation! This is a new record!</string>
+    <string name="are_you_sure_your_highest_score_will_be_saved">Are you sure? Your highest score will be saved</string>
+    <string name="exit_game">Exit game?</string>
+    <string name="let_s_try_again_current_highest_score_is">Let\'s try again! Current highest score is</string>
+    <string name="main_screen">Main Screen</string>
+    <string name="play_again">Play Again</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
 </resources>

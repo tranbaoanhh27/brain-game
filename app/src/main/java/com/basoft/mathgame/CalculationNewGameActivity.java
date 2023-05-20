@@ -1,14 +1,19 @@
 package com.basoft.mathgame;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageButton;
 
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -16,11 +21,11 @@ public class CalculationNewGameActivity extends AppCompatActivity implements Cal
 
     private TextView highestScoreTextView, playerScoreTextView, playerLifeTextView, remainingTimeTextView;
     private TextView problemTextView, answerTextView;
+    private ImageButton backButton;
     private AppCompatButton button1, button2, button3, button4, button5, button6, button7;
     private AppCompatButton button8, button9, button0, submitButton, minusButton;
     private AppCompatImageButton backspaceButton;
     private CalculationGame game;
-    private long highestScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,23 +34,25 @@ public class CalculationNewGameActivity extends AppCompatActivity implements Cal
         findViews();
         setViewContents();
         setViewListeners();
-        game = new CalculationGame(CalculationNewGameActivity.this, CalculationNewGameActivity.this);
+        game = new CalculationGame(
+                CalculationNewGameActivity.this,
+                CalculationNewGameActivity.this
+        );
         game.start();
     }
 
+    @SuppressLint("ApplySharedPref")
     @Override
     protected void onPause() {
         super.onPause();
-        SharedPreferences preferences = getSharedPreferences(MainActivity.HIGH_SCORE_PREFS, MODE_PRIVATE);
+        SharedPreferences preferences = getSharedPreferences(DataStore.HIGH_SCORE_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong(MainActivity.CALCULATION_HIGHEST_SCORE, highestScore);
-        editor.apply();
+        editor.putLong(DataStore.CALCULATION_HIGHEST_SCORE, DataStore.calculationGameHighestScore);
+        editor.commit();
     }
 
     private void setViewContents() {
-        Intent originalIntent = getIntent();
-        highestScore = originalIntent.getLongExtra(MainActivity.CALCULATION_HIGHEST_SCORE, 0);
-        highestScoreTextView.setText(String.valueOf(highestScore));
+        highestScoreTextView.setText(String.valueOf(DataStore.calculationGameHighestScore));
     }
 
     private void setViewListeners() {
@@ -72,6 +79,27 @@ public class CalculationNewGameActivity extends AppCompatActivity implements Cal
         minusButton.setOnClickListener(v -> inputMinusSign());
         backspaceButton.setOnClickListener(v -> backspace());
         submitButton.setOnClickListener(v -> submitAnswer());
+        backButton.setOnClickListener(v -> goBack());
+    }
+
+    private void goBack() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(CalculationNewGameActivity.this);
+
+        DialogInterface.OnClickListener cancelListener = (dialog, which) -> {
+            // Close the dialog
+        };
+
+        DialogInterface.OnClickListener confirmListener = (dialog, which) -> {
+            game.endGame();
+        };
+
+        builder.setIcon(R.mipmap.ic_launcher)
+                .setMessage(R.string.are_you_sure_your_highest_score_will_be_saved)
+                .setTitle(R.string.exit_game)
+                .setNegativeButton(R.string.no, cancelListener)
+                .setPositiveButton(R.string.yes, confirmListener);
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private void inputMinusSign() {
@@ -92,6 +120,7 @@ public class CalculationNewGameActivity extends AppCompatActivity implements Cal
     }
 
     private void findViews() {
+        backButton = findViewById(R.id.calculation_new_game_back_button);
         highestScoreTextView = findViewById(R.id.calculation_new_game_highest_score_text);
         playerScoreTextView = findViewById(R.id.calculation_new_game_player_score_text);
         playerLifeTextView = findViewById(R.id.calculation_new_game_player_life_text);
@@ -115,7 +144,7 @@ public class CalculationNewGameActivity extends AppCompatActivity implements Cal
 
     @Override
     public void updateHighestScore(long score) {
-        if (score > highestScore) highestScore = score;
+        if (score > DataStore.calculationGameHighestScore) DataStore.calculationGameHighestScore = score;
     }
 
     @Override
@@ -149,7 +178,7 @@ public class CalculationNewGameActivity extends AppCompatActivity implements Cal
         }
         else if (status == AnswerStatus.CORRECT) {
             answerTextView.setBackgroundResource(R.drawable.rounded_green_input_box);
-            correctString = String.format(Locale.getDefault(), "%d", answer);
+            correctString = String.valueOf(answer);
         }
         answerTextView.setText(correctString);
     }

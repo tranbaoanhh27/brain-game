@@ -2,8 +2,8 @@ package com.basoft.mathgame;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.CountDownTimer;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import java.util.Locale;
@@ -12,6 +12,7 @@ import java.util.Random;
 public class CalculationGame {
     private static final int DEFAULT_LIFE = 3;
     private long score;
+    private long oldHighScore;
     private int life;
     private CalculationGameObserver observer;
     private Context context;
@@ -28,6 +29,7 @@ public class CalculationGame {
     public CalculationGame(@NonNull CalculationGameObserver observer, Context context) {
         this.observer = observer;
         this.context = context;
+        this.oldHighScore = DataStore.calculationGameHighestScore;
         setScore(0);
         setLife(DEFAULT_LIFE);
     }
@@ -66,7 +68,7 @@ public class CalculationGame {
         timer.start();
     }
 
-    private void resetTimer() {
+    public void resetTimer() {
         if (timer != null) {
             timer.cancel();
         }
@@ -103,10 +105,23 @@ public class CalculationGame {
         }.start();
     }
 
-    private void endGame() {
+    public void endGame() {
+        resetTimer();
         observer.updateHighestScore(score);
-        Toast.makeText(context, "GAME OVER!", Toast.LENGTH_LONG).show();
-        if (context instanceof Activity) ((Activity) context).finish();
+        if (context != null && context instanceof Activity) {
+            String info = context.getString(R.string.congratulation_this_is_a_new_record);
+            if (score <= oldHighScore)
+                info = String.format(Locale.getDefault(),
+                        context.getString(R.string.let_s_try_again_current_highest_score_is) + " %d!",
+                        oldHighScore
+                );
+            Intent resultActivity = new Intent(context, GameResultActivity.class);
+            resultActivity.putExtra(GameResultActivity.SCORE, score);
+            resultActivity.putExtra(GameResultActivity.INFO, info);
+            resultActivity.putExtra(GameResultActivity.GAME, GameResultActivity.CALCULATION);
+            context.startActivity(resultActivity);
+            ((Activity) context).finish();
+        }
     }
 
     private Question createQuestion() {

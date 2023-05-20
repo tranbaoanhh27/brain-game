@@ -54,9 +54,6 @@ public class CalculationGameActivity extends AppCompatActivity {
 
     private void startCalculationNewGameActivity() {
         Intent newCalculationGame = new Intent(CalculationGameActivity.this, CalculationNewGameActivity.class);
-        Intent originalIntent = getIntent();
-        long highestScore = originalIntent.getLongExtra(MainActivity.CALCULATION_HIGHEST_SCORE, 0);
-        newCalculationGame.putExtra(MainActivity.CALCULATION_HIGHEST_SCORE, highestScore);
         startActivity(newCalculationGame);
         CalculationGameActivity.this.finish();
     }

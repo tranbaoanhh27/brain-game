@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".GameResultActivity">
+
+    <ImageView
+        android:id="@+id/game_result_boy_image"
+        android:src="@drawable/celebrating_boy"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/game_result_score_info"
+        android:contentDescription="@string/celebrating_boy" />
+
+    <LinearLayout
+        android:id="@+id/game_result_score_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.8">
+
+        <TextView
+            android:id="@+id/game_result_your_score_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/your_score_uppercase"
+            android:textSize="40sp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/game_result_your_score"
+            android:text="@string/_2048"
+            android:textSize="80sp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/primary_color_darker"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/game_result_more_info"
+            android:text="@string/congratulation_this_is_a_new_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold|italic"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/game_result_your_score"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/game_result_main_menu"
+        android:text="@string/main_screen"
+        android:background="@drawable/secondary_button"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_result_score_info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/game_result_play_again"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/game_result_play_again"
+        android:text="@string/play_again"
+        android:background="@drawable/primary_button"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toTopOf="@id/game_result_main_menu"
+        app:layout_constraintBottom_toBottomOf="@id/game_result_main_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/game_result_main_menu"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

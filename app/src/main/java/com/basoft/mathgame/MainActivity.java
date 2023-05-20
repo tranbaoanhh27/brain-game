@@ -9,12 +9,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
-    public static final String HIGH_SCORE_PREFS = "ba_soft_high_score";
-    public static final String CALCULATION_HIGHEST_SCORE = "calculation_highest_score";
     private CardView calculationGameCard;
     private TextView calculationHighScoreTextView;
-    private long calculationHighestScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +18,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         findViews();
         setupNavigationRoutes();
-        setupHighestScores();
     }
 
-    private void setupHighestScores() {
-        SharedPreferences preferences = getSharedPreferences(HIGH_SCORE_PREFS, MODE_PRIVATE);
-        calculationHighestScore = preferences.getLong(CALCULATION_HIGHEST_SCORE, 0);
-        calculationHighScoreTextView.setText(String.valueOf(calculationHighestScore));
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadHighScoresFromSharedPreferences();
+    }
+
+    private void loadHighScoresFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences(DataStore.HIGH_SCORE_PREFS, MODE_PRIVATE);
+        DataStore.calculationGameHighestScore = preferences.getLong(DataStore.CALCULATION_HIGHEST_SCORE, 0);
+        calculationHighScoreTextView.setText(String.valueOf(DataStore.calculationGameHighestScore));
     }
 
     private void setupNavigationRoutes() {
@@ -37,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void startCalculationGameActivity() {
         Intent calculationGame = new Intent(MainActivity.this, CalculationGameActivity.class);
-        calculationGame.putExtra(CALCULATION_HIGHEST_SCORE, calculationHighestScore);
         startActivity(calculationGame);
     }
 
