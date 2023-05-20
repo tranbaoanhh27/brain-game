@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Math Game</string>
+    <string name="app_name">Brain Game</string>
     <string name="app_logo">App Logo</string>
     <string name="addition">Addition</string>
     <string name="subtract">Subtraction</string>

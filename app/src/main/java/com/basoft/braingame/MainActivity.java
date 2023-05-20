@@ -1,4 +1,4 @@
-package com.basoft.mathgame;
+package com.basoft.braingame;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;

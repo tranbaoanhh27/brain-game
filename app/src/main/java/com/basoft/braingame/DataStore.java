@@ -1,4 +1,4 @@
-package com.basoft.mathgame;
+package com.basoft.braingame;
 
 public class DataStore {
     public static long calculationGameHighestScore;

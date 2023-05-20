@@ -1,4 +1,4 @@
-package com.basoft.mathgame;
+package com.basoft.braingame;
 
 import android.content.Intent;
 import android.os.Bundle;

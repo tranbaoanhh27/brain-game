@@ -1,14 +1,11 @@
-package com.basoft.mathgame;
+package com.basoft.braingame;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
-
-import java.util.Objects;
 
 public class GameResultActivity extends AppCompatActivity {
 

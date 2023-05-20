@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Math Game</string>
+    <string name="app_name">Brain Game</string>
     <string name="app_logo">Logo</string>
     <string name="addition">Phép cộng</string>
     <string name="subtract">Phép trừ</string>

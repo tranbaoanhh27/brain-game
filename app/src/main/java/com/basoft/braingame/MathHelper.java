@@ -2,7 +2,7 @@
 * This class is copied from Geeks For Geeks, thanks a lot!
 * */
 
-package com.basoft.mathgame;
+package com.basoft.braingame;
 
 import java.util.Stack;
 
