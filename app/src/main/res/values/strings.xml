@@ -30,4 +30,7 @@
     <string name="play_again">Play Again</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>
+    <string name="number_guessing">Number guessing</string>
+    <string name="magician">Magician</string>
+    <string name="test">TEST</string>
 </resources>

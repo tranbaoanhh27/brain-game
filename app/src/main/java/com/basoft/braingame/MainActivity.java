@@ -9,8 +9,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private CardView calculationGameCard;
-    private TextView calculationHighScoreTextView;
+    private CardView calculationGameCard, numberGuessingGameCard;
+    private TextView calculationHighScoreTextView, numberGuessingHighScoreTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupNavigationRoutes() {
         calculationGameCard.setOnClickListener(v -> startCalculationGameActivity());
+        numberGuessingGameCard.setOnClickListener(v -> startNumberGuessingGameActivity());
+    }
+
+    private void startNumberGuessingGameActivity() {
+        Intent numberGuessingGame = new Intent(MainActivity.this, NumberGuessingGameActivity.class);
+        startActivity(numberGuessingGame);
     }
 
     private void startCalculationGameActivity() {
@@ -44,5 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private void findViews() {
         calculationGameCard = findViewById(R.id.calculation_card);
         calculationHighScoreTextView = findViewById(R.id.calculation_high_score);
+        numberGuessingGameCard = findViewById(R.id.number_guessing_card);
+        numberGuessingHighScoreTextView = findViewById(R.id.number_guessing_high_score);
     }
 }
