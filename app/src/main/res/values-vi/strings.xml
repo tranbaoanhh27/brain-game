@@ -34,4 +34,17 @@
     <string name="number_guessing">Con số bí ẩn</string>
     <string name="magician">Người dẫn trò</string>
     <string name="test">TEST</string>
+    <string name="_continue">"Tiếp tục "</string>
+    <string name="score">Điểm số</string>
+    <string name="hello">Xin chào!</string>
+    <string name="number_guessing_game_question_format">Tôi đang nghĩ đến một con số từ 0 đến %d, bạn sẽ thắng nếu có thể đoán ra được con số đó là gì. Bạn sẽ có tổng cộng %d cơ hội đoán!</string>
+    <string name="number_guessing_game_get_user_number_format">Bạn còn %d lần đoán nữa!\nCon số đó là gì? Hãy nhớ rằng nó nằm trong khoảng từ 0 đến %d</string>
+    <string name="number_guessing_game_congratulation_format">Chính xác! Con số đó là %d! Bạn chỉ cần dùng %d lần đoán để tìm ra đáp án! Xin chúc mừng!</string>
+    <string name="number_guessing_game_guess_result_format">Hơi %s rồi! Thử lại nào! Bạn còn %d cơ hội nữa! Hãy nhớ rằng nó nằm trong khoảng từ 0 đến %d</string>
+    <string name="low">thấp</string>
+    <string name="high">cao</string>
+    <string name="number_guessing_game_over_format">GAME OVER!\nCon số chính xác là %d!</string>
+    <string name="welcome_to_number_guessing_game">Chào mừng đến với Con số bí ẩn! Nếu đã sẵn sàng, hãy nhấn nút BẮT ĐẦU bên dưới!</string>
+    <string name="please_enter_an_integer">Vui lòng nhập một số nguyên!</string>
+    <string name="enter_your_answer">Nhập câu trả lời...</string>
 </resources>
