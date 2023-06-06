@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 public class TypeWriter extends androidx.appcompat.widget.AppCompatTextView {
     private CharSequence mText;
     private int mIndex;
-    private long mDelay = 75; //Default 75ms delay
+    private long mDelay = 25; //Default 25ms delay
 
 
     public TypeWriter(Context context) {

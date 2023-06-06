@@ -33,4 +33,17 @@
     <string name="number_guessing">Number guessing</string>
     <string name="magician">Magician</string>
     <string name="test">TEST</string>
+    <string name="_continue">Continue</string>
+    <string name="score">Score</string>
+    <string name="hello">Hello!</string>
+    <string name="number_guessing_game_question_format">I am thinking of a number from 0 to %d, you will become the winner if you can find out what that number is. You have %d chances in total!</string>
+    <string name="number_guessing_game_get_user_number_format">You have %d chances left!\nWhat is your number? Remember that it\'s from 0 to %d</string>
+    <string name="number_guessing_game_congratulation_format">Exactly! The correct number is %d! You used only %d chances to find out the number! Congratulation!</string>
+    <string name="number_guessing_game_guess_result_format">It\'s too %s! Let\'s try again! You have %d chances left! Remember that it\'s from 0 to %d</string>
+    <string name="low">low</string>
+    <string name="high">high</string>
+    <string name="number_guessing_game_over_format">GAME OVER!\nThe correct number is %d!</string>
+    <string name="welcome_to_number_guessing_game">Welcome to Number Guessing Game! If you are ready, press the below START button!</string>
+    <string name="please_enter_an_integer">Please enter an integer!</string>
+    <string name="enter_your_answer">Enter your answer...</string>
 </resources>

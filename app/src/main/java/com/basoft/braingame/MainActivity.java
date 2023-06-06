@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences(DataStore.HIGH_SCORE_PREFS, MODE_PRIVATE);
         DataStore.calculationGameHighestScore = preferences.getLong(DataStore.CALCULATION_HIGHEST_SCORE, 0);
         calculationHighScoreTextView.setText(String.valueOf(DataStore.calculationGameHighestScore));
+        DataStore.numberGuessingGameHighestScore = preferences.getLong(DataStore.NUMBER_GUESSING_HIGHEST_SCORE, 0);
+        numberGuessingHighScoreTextView.setText(String.valueOf(DataStore.numberGuessingGameHighestScore));
     }
 
     private void setupNavigationRoutes() {
