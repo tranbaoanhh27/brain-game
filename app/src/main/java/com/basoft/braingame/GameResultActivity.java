@@ -18,6 +18,7 @@ public class GameResultActivity extends AppCompatActivity {
     public static final String INFO = "info";
     public static final String GAME = "game";
     public static final String CALCULATION = "calculation";
+    public static final String NUMBER_GUESSING = "number_guessing";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,16 @@ public class GameResultActivity extends AppCompatActivity {
         Intent newGame = null;
         if (game.equals(CALCULATION)) {
             newGame = new Intent(GameResultActivity.this, CalculationGameActivity.class);
-
+        }
+        switch (game) {
+            case CALCULATION:
+                newGame = new Intent(GameResultActivity.this, CalculationGameActivity.class);
+                break;
+            case NUMBER_GUESSING:
+                newGame = new Intent(GameResultActivity.this, NumberGuessingGameActivity.class);
+                break;
+            default:
+                break;
         }
         if (newGame != null) startActivity(newGame);
         GameResultActivity.this.finish();

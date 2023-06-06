@@ -9,8 +9,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private CardView calculationGameCard;
-    private TextView calculationHighScoreTextView;
+    private CardView calculationGameCard, numberGuessingGameCard;
+    private TextView calculationHighScoreTextView, numberGuessingHighScoreTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +30,18 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences(DataStore.HIGH_SCORE_PREFS, MODE_PRIVATE);
         DataStore.calculationGameHighestScore = preferences.getLong(DataStore.CALCULATION_HIGHEST_SCORE, 0);
         calculationHighScoreTextView.setText(String.valueOf(DataStore.calculationGameHighestScore));
+        DataStore.numberGuessingGameHighestScore = preferences.getLong(DataStore.NUMBER_GUESSING_HIGHEST_SCORE, 0);
+        numberGuessingHighScoreTextView.setText(String.valueOf(DataStore.numberGuessingGameHighestScore));
     }
 
     private void setupNavigationRoutes() {
         calculationGameCard.setOnClickListener(v -> startCalculationGameActivity());
+        numberGuessingGameCard.setOnClickListener(v -> startNumberGuessingGameActivity());
+    }
+
+    private void startNumberGuessingGameActivity() {
+        Intent numberGuessingGame = new Intent(MainActivity.this, NumberGuessingGameActivity.class);
+        startActivity(numberGuessingGame);
     }
 
     private void startCalculationGameActivity() {
@@ -44,5 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private void findViews() {
         calculationGameCard = findViewById(R.id.calculation_card);
         calculationHighScoreTextView = findViewById(R.id.calculation_high_score);
+        numberGuessingGameCard = findViewById(R.id.number_guessing_card);
+        numberGuessingHighScoreTextView = findViewById(R.id.number_guessing_high_score);
     }
 }

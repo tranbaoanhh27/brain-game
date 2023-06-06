@@ -49,6 +49,11 @@ public class CalculationNewGameActivity extends AppCompatActivity implements Cal
         editor.commit();
     }
 
+    @Override
+    public void onBackPressed() {
+        goBack();
+    }
+
     private void setViewContents() {
         highestScoreTextView.setText(String.valueOf(DataStore.calculationGameHighestScore));
     }

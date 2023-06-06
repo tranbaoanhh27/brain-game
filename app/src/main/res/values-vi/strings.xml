@@ -31,4 +31,7 @@
     <string name="play_again">Chơi lại</string>
     <string name="no">Không</string>
     <string name="yes">Có</string>
+    <string name="number_guessing">Con số bí ẩn</string>
+    <string name="magician">Người dẫn trò</string>
+    <string name="test">TEST</string>
 </resources>
